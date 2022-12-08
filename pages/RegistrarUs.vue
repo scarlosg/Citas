@@ -22,8 +22,8 @@
           <v-text-field
             v-model="lastname"
             :rules="nameRulesA"
-            :counter="30" 
-             label="Apellidos"
+            :counter="30"
+            label="Apellidos"
             required
           ></v-text-field>
         </v-col>
@@ -34,7 +34,7 @@
         :items="items"
         label="Cedula"
       ></v-select>
-      <v-text-field v-mask="['#.###.###','##.###.###']" label="Numero de Cedula"></v-text-field>
+      <v-text-field v-mask="['#.###.###','##.###.###']" label="Numero de Cédula"></v-text-field>
     </v-col>
  
         <v-col
@@ -44,7 +44,8 @@
           <v-text-field
             v-model="Nacimiento"
             v-mask="['##/##/####']"
-             label="Fecha de Nacimiento"
+            :rules="nameRulesFe"
+            label="Fecha de Nacimiento"
             required
           ></v-text-field>
         </v-col>
@@ -93,13 +94,22 @@
         </v-col>
       </v-col>
       
-      <v-radio-group v-model="radioGroup">
+      
+    <v-radio-group
+      v-model="radios"
+      mandatory
+    >
       <v-radio
-        v-for="n in 3"
-        :key="n"
-        :rules="Genero"
-        :label="`Femenino, Masculino, Otros  ${n}`"
-        :value="n"
+        label="Femenino"
+        value="radio-1"
+      ></v-radio>
+      <v-radio
+        label="Masculino"
+        value="radio-2"
+      ></v-radio>
+      <v-radio 
+      label ="Otro"
+      value="radio-3"
       ></v-radio>
     </v-radio-group>
 
@@ -113,6 +123,7 @@
           label="Estado"
           outlined
         ></v-select>
+
       </v-col>
       
         <v-col
@@ -123,6 +134,7 @@
         <v-select
           :items="itemsC"
           label="Ciudad"
+          outlined
         ></v-select>
       </v-col>
 
@@ -151,6 +163,24 @@
       </v-col>
 
       </v-row>
+      <v-bottom-navigation
+    :value="value"
+    color="teal"
+    grow
+  >
+    <v-btn>
+      <span>Registrar</span>
+
+      <v-icon>mdi-account-plus</v-icon>
+    </v-btn>
+
+    <v-btn>
+      <span>Cancelar</span>
+
+      <v-icon>mdi-cancel</v-icon>
+    </v-btn>
+
+  </v-bottom-navigation>
     </v-container>
   </v-form>
 </template>
@@ -163,11 +193,14 @@ export default {
     lastname: '',
     Cedula: '',
     direccion: '',
-    items: ['Venezolano', 'Extranjero', 'Pasaporte',],
-    itemsE: ['Amazonas','Anzoátegui','Apure','Aragua','Barinas','Bolívar','Carabobo','Cojedes','Delta Amacuro','Distrito Federal','Falcón','Guárico','Lara','Mérida','Miranda','Monagas','Nueva Esparta','Portuguesa','Sucre','Táchira','Trujillo','Vargas','Yaracuy','Zulia',],
-    itemsC: ['Barquisimeto'],
-    itemsP: ['Ana Soto'],
-    itemsM: ['Iribarren'],
+    Telefono: '',
+    email: '',
+    Nacimiento: '',
+    items: ['Venezolano', 'Extranjero', 'Pasaporte'],
+    itemsE: ['[Seleccione]'],
+    itemsC: ['[Seleccione]'],
+    itemsP: ['[Seleccione]'],
+    itemsM: ['[Seleccione]'],
 
     nameRules: [
       v => !!v || 'Los Nombres son Requeridos',
@@ -180,8 +213,8 @@ export default {
     ],
 
     cedulaRules:[
-      v => !!v || 'Cedula Requerida',
-      v=> v.length <= 8 || 'Cedula no valida',
+      v => !!v || 'Cédula Requerida',
+      v=> v.length <= 8 || 'Cédula no valida',
       v=> v,
     ],
 
@@ -191,17 +224,17 @@ export default {
       
     ],
 
-    email: '',
     emailRules: [
       v => !!v || 'E-mail es Requerido',
       v => /.+@.+/.test(v) || 'E-mail no es valido',
     ],
+
     nameRulesT: [
-    v => !!v || 'Telefono Requerido',
+      v => !!v || 'Telefono Requerido',
     ],
 
-    Genero: [
-
+    nameRuleFe: [
+      v => !!v || 'Fecha Requerido',
     ],
 
   }),
