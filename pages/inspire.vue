@@ -1,6 +1,16 @@
 <template>
   <v-form>
     <v-container>
+      <center>
+        <v-col cols="6" md="2">
+      <v-text-field v-mask="['#.###.###','##.###.###']" label="Buscar Cédula"></v-text-field>
+      <v-btn fab dark small color="gray">
+        <v-icon dark>
+        mdi-account-search
+        </v-icon>
+      </v-btn>
+      </v-col>
+      </center>
       <v-row>
         <v-col
           cols="20"

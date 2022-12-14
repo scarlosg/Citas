@@ -1,6 +1,19 @@
 <template>
   <v-form>
     <v-container>
+      <center>
+      <v-col cols="6" md="2">
+      <v-text-field v-mask="['#.###.###','##.###.###']" label="Buscar Cédula"></v-text-field> 
+     <v-row>
+      <v-btn fab dark small color="gray">
+        <v-icon dark>
+        mdi-account-search
+        </v-icon>
+        </v-btn>
+     </v-row>
+        </v-col>
+        </center>
+      
       <v-row>
         <v-col
           cols="20"
@@ -19,7 +32,7 @@
           cols="10"
           md="3"
         >
-          <v-text-field
+          <v-text-field 
             v-model="lastname"
             :rules="nameRulesA"
             :counter="30"
@@ -35,7 +48,7 @@
         label="Cedula"
       ></v-select>
       <v-text-field v-mask="['#.###.###','##.###.###']" label="Numero de Cédula"></v-text-field>
-    </v-col>
+    </v-col>  
  
         <v-col
           cols="3"
@@ -74,12 +87,13 @@
             required
           ></v-text-field>
         </v-col>
-        
+      
         <v-col
         class="d-flex"
         cols="12"
         sm="3"
       >
+      
       <v-col
           cols="3"
           md="10"
@@ -93,8 +107,7 @@
           ></v-text-field>
         </v-col>
       </v-col>
-      
-      
+    <p>Genero</p>
     <v-radio-group
       v-model="radios"
       mandatory
@@ -111,45 +124,20 @@
       label ="Otro"
       value="radio-3"
       ></v-radio>
-    </v-radio-group>
 
+    </v-radio-group> 
+   
       <v-col
-      class="d-flex"
-      cols="12"
-      sm="3"
-    >
-        <v-select
-          :items="itemsE"
-          label="Estado"
-          outlined
-        ></v-select>
-
-      </v-col>
-      
-        <v-col
-        class="d-flex"
+        
         cols="12"
         sm="3"
-      >
-        <v-select
-          :items="itemsC"
-          label="Ciudad"
-          outlined
-        ></v-select>
-      </v-col>
-
-      <v-col
-        class="d-flex"
-        cols="12"
-        sm="3"
-      >
-        <v-select
+      >      
+      <v-select 
           :items="itemsM"
           label="Municipio"
           outlined
         ></v-select>
       </v-col>
-
       <v-col
         class="d-flex"
         cols="12"
@@ -159,9 +147,11 @@
           :items="itemsP"
           filled
           label="Parroquia"
+          class="text-md-center"
         ></v-select>
       </v-col>
-
+     
+    
       </v-row>
       <v-bottom-navigation
     :value="value"
@@ -170,18 +160,16 @@
   >
     <v-btn>
       <span>Registrar</span>
-
       <v-icon>mdi-account-plus</v-icon>
     </v-btn>
 
     <v-btn>
-      <span>Cancelar</span>
-
-      <v-icon>mdi-cancel</v-icon>
+      <span>Editar</span>
+      <v-icon>mdi-account-edit</v-icon>
     </v-btn>
-
   </v-bottom-navigation>
-    </v-container>
+
+</v-container>
   </v-form>
 </template>
 
@@ -196,6 +184,7 @@ export default {
     Telefono: '',
     email: '',
     Nacimiento: '',
+    mensaje: 'dasdaasdasdasdasd',
     items: ['Venezolano', 'Extranjero', 'Pasaporte'],
     itemsE: ['[Seleccione]'],
     itemsC: ['[Seleccione]'],
@@ -231,12 +220,12 @@ export default {
 
     nameRulesT: [
       v => !!v || 'Telefono Requerido',
+      
     ],
 
     nameRuleFe: [
       v => !!v || 'Fecha Requerido',
-    ],
-
-  }),
+    ],    
+  })
 }
 </script>
