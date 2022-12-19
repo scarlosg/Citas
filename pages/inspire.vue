@@ -2,14 +2,16 @@
   <v-form>
     <v-container>
       <center>
-        <v-col cols="6" md="2">
-      <v-text-field v-mask="['#.###.###','##.###.###']" label="Buscar Cédula"></v-text-field>
-      <v-btn fab dark small color="gray">
-        <v-icon dark>
+      <v-form action="">
+        <p>
+          Buscar Cédula: <input v-mask="['#.###.###','##.###.###']" method="post" type="search"  name="buscarcedula" placeholder="V-">
+          <v-btn dark small color="gray">Buscar
+            <v-icon dark>
         mdi-account-search
         </v-icon>
-      </v-btn>
-      </v-col>
+          </v-btn>
+        </p>
+      </v-form>
       </center>
       <v-row>
         <v-col
@@ -44,7 +46,7 @@
         :items="items"
         label="Cedula"
       ></v-select>
-      <v-text-field v-mask="['#.###.###','##.###.###']" label="Numero de Cédula"></v-text-field>
+      <v-text-field v-mask="['#.###.###','##.###.###']" placeholder="V-" label="Numero de Cédula"></v-text-field>
     </v-col>
  
         <v-col
@@ -54,6 +56,7 @@
           <v-text-field
             v-model="Nacimiento"
             v-mask="['##/##/####']"
+            placeholder="DD/MM/AAAA"
             :rules="nameRulesFe"
             label="Fecha de Nacimiento"
             required
@@ -67,6 +70,7 @@
           <v-text-field
             v-model="email"
             :rules="emailRules"
+            placeholder="ejemplo@ejemplo.com"
             label="E-mail"
             required
           ></v-text-field>
@@ -97,6 +101,7 @@
           <v-text-field
             v-model="Telefono"
             v-mask="['####-###-####']"
+            placeholder="04XX-000-0000"
             :rules="nameRulesT"
              label="Telefono"
             required
@@ -104,7 +109,7 @@
         </v-col>
       </v-col>
       
-    <p>Genero</p>
+      <p>Genero</p>
     <v-radio-group
       v-model="radios"
       mandatory
@@ -124,29 +129,22 @@
     </v-radio-group>
 
     <v-bottom-navigation
-    :value="value"
-    color="teal"
-    grow
-  >
+        :value="value"
+        color="teal"
+        grow>
+
     <v-btn>
       <span>Registrar</span>
       <v-icon>mdi-account-plus</v-icon>
     </v-btn>
 
     <v-btn>
-      <span>Cancelar</span>
-      <v-icon>mdi-cancel</v-icon>
+      <span>Editar</span>
+      <v-icon>mdi-account-edit</v-icon>
     </v-btn>
-
-    <v-btn>
-      <span>Limpiar</span>
-      <v-icon>mdi-delete-sweep</v-icon>
-    </v-btn>
-
   </v-bottom-navigation>
-      </v-row>
 
-      
+      </v-row>    
     </v-container>
   </v-form>
 </template>

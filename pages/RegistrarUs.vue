@@ -1,19 +1,28 @@
 <template>
   <v-form>
+  
     <v-container>
+
+      
+      <center>
+      <v-form action="">
+        <p>
+          Buscar Cédula: <input v-mask="['#.###.###','##.###.###']" method="post" type="search"  name="buscarcedula" placeholder="V-">
+          <v-btn dark small color="gray">Buscar
+            <v-icon dark>
+        mdi-account-search
+        </v-icon>
+          </v-btn>
+        </p>
+      </v-form>
+      </center>
+      <!--
       <center>
       <v-col cols="6" md="2">
       <v-text-field v-mask="['#.###.###','##.###.###']" label="Buscar Cédula"></v-text-field> 
-     <v-row>
-      <v-btn fab dark small color="gray">
-        <v-icon dark>
-        mdi-account-search
-        </v-icon>
-        </v-btn>
-     </v-row>
         </v-col>
         </center>
-      
+      -->
       <v-row>
         <v-col
           cols="20"
@@ -47,7 +56,7 @@
         :items="items"
         label="Cedula"
       ></v-select>
-      <v-text-field v-mask="['#.###.###','##.###.###']" label="Numero de Cédula"></v-text-field>
+      <v-text-field v-mask="['#.###.###','##.###.###']" label="Numero de Cédula" placeholder="V-"></v-text-field>
     </v-col>  
  
         <v-col
@@ -55,8 +64,10 @@
           md="3"
         >
           <v-text-field
+          
             v-model="Nacimiento"
             v-mask="['##/##/####']"
+            placeholder="DD/MM/AAAA"
             :rules="nameRulesFe"
             label="Fecha de Nacimiento"
             required
@@ -70,6 +81,7 @@
           <v-text-field
             v-model="email"
             :rules="emailRules"
+            placeholder="ejemplo@ejemplo.com"
             label="E-mail"
             required
           ></v-text-field>
@@ -102,6 +114,7 @@
             v-model="Telefono"
             v-mask="['####-###-####']"
             :rules="nameRulesT"
+            placeholder="04XX-000-0000"
              label="Telefono"
             required
           ></v-text-field>
@@ -124,40 +137,37 @@
       label ="Otro"
       value="radio-3"
       ></v-radio>
-
     </v-radio-group> 
-   
-      <v-col
-        
+
+        <v-col 
         cols="12"
-        sm="3"
-      >      
-      <v-select 
+        sm="3">      
+        <v-select 
           :items="itemsM"
           label="Municipio"
           outlined
         ></v-select>
-      </v-col>
-      <v-col
+        </v-col>
+        
+        <v-col
         class="d-flex"
         cols="12"
-        sm="3"
-      >
+        sm="3">
         <v-select
           :items="itemsP"
           filled
           label="Parroquia"
           class="text-md-center"
         ></v-select>
-      </v-col>
-     
-    
-      </v-row>
-      <v-bottom-navigation
-    :value="value"
-    color="teal"
-    grow
-  >
+        </v-col>
+      
+    </v-row>
+
+    <v-bottom-navigation
+        :value="value"
+        color="teal"
+        grow>
+
     <v-btn>
       <span>Registrar</span>
       <v-icon>mdi-account-plus</v-icon>
@@ -186,8 +196,6 @@ export default {
     Nacimiento: '',
     mensaje: 'dasdaasdasdasdasd',
     items: ['Venezolano', 'Extranjero', 'Pasaporte'],
-    itemsE: ['[Seleccione]'],
-    itemsC: ['[Seleccione]'],
     itemsP: ['[Seleccione]'],
     itemsM: ['[Seleccione]'],
 

@@ -4,21 +4,49 @@
       <img src="/v.png" alt="Vuetify.js" class="mb-5" />
       
       <center>
-      <v-col  md="2">
-      <v-text-field v-mask="['#.###.###','##.###.###']" label="Cédula"></v-text-field> 
-        <v-btn  dark small color="gray"> Buscar
-        <v-icon dark color="red">
+      <v-form action="">
+        <p>
+          Buscar Cédula: <input v-mask="['#.###.###','##.###.###']" type="search"  name="buscarcedula" placeholder="V-">
+          <v-btn dark small color="gray">Buscar
+            <v-icon dark>
         mdi-account-search
         </v-icon>
-        </v-btn>
-        </v-col>
-      </center>
+          </v-btn>
+        </p>
+      </v-form>
+
           <footer>
             <small>
               <em>&mdash;Carlos</em>
             </small>
           </footer>
-       
+
+      <v-col
+        class="d-flex"
+        cols="12"
+        sm="4"
+      >
+        <v-select
+          :items="items"
+          label="Especialidad"
+          dense
+        ></v-select>
+      </v-col>
+
+      <v-col
+        class="d-flex"
+        cols="12"
+        sm="4"
+      >
+        <v-select
+          :items="items"
+          label="Médico"
+          dense
+        ></v-select>
+      </v-col>
+      
+      </center>
+          
     </v-col>
    
   </v-row>

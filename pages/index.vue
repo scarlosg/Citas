@@ -23,7 +23,6 @@
           <p>
                        
           </p>
-          <p>
             
           <p>
             TEXTO REFERENTE A LA CASA DE LOS ABUELOS

@@ -6,7 +6,7 @@
       :clipped="clipped"
       fixed
       app
-      color="blue"
+      color="gray"
     >
       <v-list>
         <v-list-item
