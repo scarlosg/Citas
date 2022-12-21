@@ -27,7 +27,7 @@
         sm="4"
       >
         <v-select
-          :items="items"
+          :items="nameEspecialidad"
           label="Especialidad"
           dense
         ></v-select>
@@ -39,14 +39,13 @@
         sm="4"
       >
         <v-select
-          :items="items"
+          :items="nameMedico"
           label="Médico"
           dense
         ></v-select>
       </v-col>
-      
       </center>
-          
+
     </v-col>
    
   </v-row>

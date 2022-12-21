@@ -54,9 +54,9 @@
     <v-col cols="6" md="3">
       <v-select
         :items="items"
-        label="Cedula"
+        label="Cédula"
       ></v-select>
-      <v-text-field v-mask="['#.###.###','##.###.###']" label="Numero de Cédula" placeholder="V-"></v-text-field>
+      <v-text-field v-mask="['#.###.###','##.###.###']" label="Número de Cédula" placeholder="V-"></v-text-field>
     </v-col>  
  
         <v-col
@@ -115,12 +115,12 @@
             v-mask="['####-###-####']"
             :rules="nameRulesT"
             placeholder="04XX-000-0000"
-             label="Telefono"
+             label="Teléfono"
             required
           ></v-text-field>
         </v-col>
       </v-col>
-    <p>Genero</p>
+    <p>Género</p>
     <v-radio-group
       v-model="radios"
       mandatory
@@ -139,6 +139,7 @@
       ></v-radio>
     </v-radio-group> 
 
+  
         <v-col 
         cols="12"
         sm="3">      
@@ -211,7 +212,7 @@ export default {
 
     cedulaRules:[
       v => !!v || 'Cédula Requerida',
-      v=> v.length <= 8 || 'Cédula no valida',
+      v=> v.length <= 8 || 'Número de Cédula no valida',
       v=> v,
     ],
 
@@ -227,7 +228,7 @@ export default {
     ],
 
     nameRulesT: [
-      v => !!v || 'Telefono Requerido',
+      v => !!v || 'Teléfono Requerido',
       
     ],
 

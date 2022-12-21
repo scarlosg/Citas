@@ -44,9 +44,9 @@
     <v-col cols="6" md="3">
       <v-select
         :items="items"
-        label="Cedula"
+        label="Cédula"
       ></v-select>
-      <v-text-field v-mask="['#.###.###','##.###.###']" placeholder="V-" label="Numero de Cédula"></v-text-field>
+      <v-text-field v-mask="['#.###.###','##.###.###']" placeholder="V-" label="Número de Cédula"></v-text-field>
     </v-col>
  
         <v-col
@@ -103,13 +103,13 @@
             v-mask="['####-###-####']"
             placeholder="04XX-000-0000"
             :rules="nameRulesT"
-             label="Telefono"
+             label="Teléfono"
             required
           ></v-text-field>
         </v-col>
       </v-col>
       
-      <p>Genero</p>
+      <p>Género</p>
     <v-radio-group
       v-model="radios"
       mandatory
@@ -190,7 +190,7 @@ export default {
     ],
 
     nameRulesT: [
-      v => !!v || 'Telefono Requerido',
+      v => !!v || 'Teléfono Requerido',
       
     ],
 
