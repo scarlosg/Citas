@@ -1,20 +1,23 @@
 <template>
-  <v-form>
-    <v-container>  
-      <v-card height="700px" width="650px" elevation="10">
-          
-      <center>
-      <v-form action="">
-        <p>
-          Buscar Cédula: <input v-mask="['#.###.###','##.###.###']" method="post" type="search"  name="buscarcedula" placeholder="V-">
-          <v-btn dark small color="gray">Buscar
-          <v-icon dark>
-             mdi-account-search
-          </v-icon>
-          </v-btn>
-        </p>
-      </v-form>
-      </center>
+  <v-parallax src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg" height="800">
+    
+  <v-form>  
+    <v-container> 
+      <v-row justify="center" align="center">
+      <v-card  height="750px" width="700px">
+        <v-col cols="6" sm="4" md="12">
+        <center>
+          <v-form action="">
+            <p>
+              Buscar Cédula: <input v-mask="['#.###.###','##.###.###']" method="post" type="search"  name="buscarcedula" placeholder="V-">
+              <v-btn dark small color="gray">Buscar
+              <v-icon dark>
+                mdi-account-search
+              </v-icon>
+              </v-btn>
+            </p>
+          </v-form>
+        </center>
       
       <v-row justify="center" align="center">
 
@@ -145,9 +148,12 @@
         <v-icon>mdi-account-edit</v-icon>
       </v-btn>
     </v-bottom-navigation>
-      </v-card>
+    </v-col>
+   </v-card>
+  </v-row>
     </v-container>
   </v-form>
+  </v-parallax>
 </template>
 
 <script>
