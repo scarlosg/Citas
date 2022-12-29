@@ -1,6 +1,9 @@
 <template>
   <v-form>
     <v-container>
+        <v-row justify="center" align="center">
+      <v-card height="750px" width="700px">
+      
       <center>
         <v-form action="">
           <p>
@@ -114,7 +117,9 @@
               mdi-account-edit
             </v-icon>
           </v-btn>
-        </v-bottom-navigation>
+        </v-bottom-navigation> 
+       </v-card>
+      </v-row>
     </v-container>
   </v-form>
 </template>

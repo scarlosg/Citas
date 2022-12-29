@@ -1,7 +1,15 @@
 <template>
-  <v-row> 
+    <v-form>
+      <v-parallax dark src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg" height="800">
+      
+   <v-container>
+  <v-row justify="center" align="center"> 
     <v-col class="text-center">
-      <img src="/logo.png" alt="Vuetify.js" class="mb-5">
+      <v-row  justify="center" align="center">
+      <v-card height="150px" width="150px" color="light-blue lighten-3">
+        <img src="/logo.png" alt="Vuetify.js">
+      </v-card>
+      </v-row>
         <v-stepper v-model="e1">
             <v-stepper-header>
               <v-stepper-step
@@ -124,7 +132,11 @@
               </v-stepper-items>
         </v-stepper>
     </v-col>
-  </v-row>
+  </v-row> 
+</v-container>
+</v-parallax>
+ </v-form>
+
 </template>
 
 <script>

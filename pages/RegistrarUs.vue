@@ -1,9 +1,10 @@
 <template>
-  <v-parallax src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg" height="800">
-    
-  <v-form>  
-    <v-container> 
+  <v-form margin="0"> 
+     <v-parallax src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg" height="900">
+    <v-container>
+      
       <v-row justify="center" align="center">
+        
       <v-card  height="750px" width="700px">
         <v-col cols="6" sm="4" md="12">
         <center>
@@ -152,8 +153,9 @@
    </v-card>
   </v-row>
     </v-container>
+     </v-parallax>
   </v-form>
-  </v-parallax>
+ 
 </template>
 
 <script>
