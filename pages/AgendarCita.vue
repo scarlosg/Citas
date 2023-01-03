@@ -1,8 +1,8 @@
 <template>
     <v-form>
-      <v-parallax dark src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg" height="800">
+      <v-parallax dark src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg" height="800" width="400">
       
-   <v-container>
+   <v-container fluid>
   <v-row justify="center" align="center"> 
     <v-col class="text-center">
       <v-row  justify="center" align="center">
@@ -134,7 +134,7 @@
     </v-col>
   </v-row> 
 </v-container>
-</v-parallax>
+></v-parallax>
  </v-form>
 
 </template>

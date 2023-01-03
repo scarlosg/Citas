@@ -2,7 +2,14 @@
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
       <v-card class="logo py-4 d-flex justify-center">
-        <NuxtLogo />
+        
+        <v-carousel hide-delimiters height="350">
+          <v-carousel-item
+            v-for="(item,i) in items"
+            :key="i"
+            :src="item.src"
+          ></v-carousel-item>
+        </v-carousel>
       </v-card>
       <v-card>
         <v-card-title class="headline">
@@ -59,5 +66,23 @@
 <script>
 export default {
   name: 'IndexPage',
+  data () {
+      return {
+        items: [
+          {
+            src: '2017-06-13.jpg',
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+          },
+        ],
+      }
+    },
 }
 </script>

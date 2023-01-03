@@ -1,4 +1,5 @@
 <template>
+  
   <v-app dark>
     <v-navigation-drawer
       v-model="drawer"
@@ -42,7 +43,9 @@
     <v-footer :absolute="!fixed" app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
+   
   </v-app>
+  
 </template>
 
 <script>
