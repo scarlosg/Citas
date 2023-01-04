@@ -1,4 +1,10 @@
 <template>
+   <v-layout row wrap>
+   <v-parallax
+    height="900"
+    
+    src="https://cdn.vuetifyjs.com/images/parallax/material2.jpg">
+
   <v-form>
     <v-container>
         <v-row justify="center" align="center">
@@ -122,6 +128,9 @@
       </v-row>
     </v-container>
   </v-form>
+  
+  </v-parallax>
+  </v-layout>
 </template>
 
 <script>

@@ -1,16 +1,17 @@
 <template>
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
-      <v-card class="logo py-4 d-flex justify-center">
-        
-        <v-carousel hide-delimiters height="350">
+      
+      <v-row>
+        <v-carousel hide-delimiters height="250">
           <v-carousel-item
             v-for="(item,i) in items"
             :key="i"
             :src="item.src"
           ></v-carousel-item>
         </v-carousel>
-      </v-card>
+      </v-row><br>
+
       <v-card>
         <v-card-title class="headline">
           Bienvenidos a la casa de los abuelos

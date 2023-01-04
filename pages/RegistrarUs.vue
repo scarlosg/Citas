@@ -1,13 +1,20 @@
 <template>
-  <v-form margin="0"> 
-     <v-parallax src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg" height="900">
+  <v-layout row wrap>
+ 
+  <v-parallax 
+  height="850"
+  width="100%"
+  src="https://cdn.vuetifyjs.com/images/parallax/material.jpg">
+  <v-form > 
+     
     <v-container>
       
       <v-row justify="center" align="center">
         
-      <v-card  height="750px" width="700px">
-        <v-col cols="6" sm="4" md="12">
-        <center>
+      
+        <v-col cols="12" sm="8" >
+          <v-row justify="center" align="center">
+             <center>
           <v-form action="">
             <p>
               Buscar Cédula: <input v-mask="['#.###.###','##.###.###']" method="post" type="search"  name="buscarcedula" placeholder="V-">
@@ -19,7 +26,12 @@
             </p>
           </v-form>
         </center>
+          </v-row>
+       
+      </v-col>
       
+      <v-card color="light-blue darken-4" width="1000px">
+    
       <v-row justify="center" align="center">
 
         <v-col cols="6" md="3">
@@ -91,7 +103,7 @@
 
       <v-row justify="center" align="center">
 
-        <v-col class="d-flex" cols="6" sm="3">
+        <v-col cols="6" sm="5">
           <v-text-field
             v-model="Telefono"
             v-mask="['####-###-####']"
@@ -101,22 +113,14 @@
             required
           ></v-text-field>
         </v-col>
-
-        <v-radio-group v-model="radios" mandatory>
-          <p>Género</p>
-          <v-radio
-            label="Femenino"
-            value="radio-1"
-          ></v-radio>
-          <v-radio
-            label="Masculino"
-            value="radio-2"
-          ></v-radio>
-          <v-radio 
-            label ="Otro"
-            value="radio-3"
-          ></v-radio>
-        </v-radio-group> 
+    
+        <v-col cols="6" sm="3">      
+          <v-select 
+            :items="itemsM"
+            label="Municipio"
+            outlined
+          ></v-select>
+        </v-col>
       </v-row>
 
       <v-row justify="center" align="center">
@@ -137,7 +141,8 @@
           ></v-select>
         </v-col>
       </v-row> 
-    <v-bottom-navigation :value="value" color="teal" grow>
+
+    <v-bottom-navigation :value="value" grow>
 
       <v-btn>
         <span>Registrar</span>
@@ -149,13 +154,16 @@
         <v-icon>mdi-account-edit</v-icon>
       </v-btn>
     </v-bottom-navigation>
-    </v-col>
+    
    </v-card>
   </v-row>
     </v-container>
-     </v-parallax>
+   
   </v-form>
- 
+
+   </v-parallax>
+  
+</v-layout>
 </template>
 
 <script>
