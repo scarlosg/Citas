@@ -1,15 +1,16 @@
 <template>
    <v-layout row wrap>
    <v-parallax
-    height="900"
-    
-    src="https://cdn.vuetifyjs.com/images/parallax/material2.jpg">
-
+    height="800"
+  
+    src="https://cdn.vuetifyjs.com/images/parallax/material.jpg">
   <v-form>
     <v-container>
         <v-row justify="center" align="center">
-      <v-card height="750px" width="700px">
-      
+         <v-col cols="12" sm="8" >
+          <v-row justify="center" align="center">
+        
+          
       <center>
         <v-form action="">
           <p>
@@ -22,9 +23,14 @@
           </p>
         </v-form>
       </center>
+     </v-row>
+    
+  </v-col>
+   
+      <v-card color="light-blue darken-4" width="1000">
 
       <v-row justify="center" align="center">
-        <v-col cols="20" md="3">
+        <v-col cols="6" md="3">
           <v-text-field 
             v-model="firstname"
             :rules="nameRules"

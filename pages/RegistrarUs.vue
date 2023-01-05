@@ -3,8 +3,9 @@
  
   <v-parallax 
   height="850"
-  width="100%"
-  src="https://cdn.vuetifyjs.com/images/parallax/material.jpg">
+  srcset="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
+  
+  >
   <v-form > 
      
     <v-container>
@@ -26,8 +27,7 @@
             </p>
           </v-form>
         </center>
-          </v-row>
-       
+      </v-row>
       </v-col>
       
       <v-card color="light-blue darken-4" width="1000px">

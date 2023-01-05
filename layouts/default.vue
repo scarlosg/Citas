@@ -7,7 +7,7 @@
       :clipped="clipped"
       fixed
       app
-      color="gray"
+      color="indigo lighten-2"
     >
       <v-list>
         <v-list-item
@@ -82,6 +82,11 @@ export default {
           icon:" mdi-chart-bar-stacked",
           title:"Reporte",
           to:"/Reporte",
+        },
+        {
+          icon:"",
+          title:"Pacientes",
+          to:"/Pacientes",
         },
       ],
       miniVariant: false,

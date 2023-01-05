@@ -1,15 +1,17 @@
 <template>
-    <v-form>
-      <v-parallax dark src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg" height="800" width="400">
-      
+     <v-layout row wrap>
+     
+      <v-parallax srcset="https://cdn.vuetifyjs.com/images/parallax/material.jpg" height="800" >
+   <v-form>
    <v-container fluid>
+     <img src="/logo.png" alt="Vuetify.js">
   <v-row justify="center" align="center"> 
-    <v-col class="text-center">
-      <v-row  justify="center" align="center">
-      <v-card height="150px" width="150px" color="light-blue lighten-3">
-        <img src="/logo.png" alt="Vuetify.js">
-      </v-card>
-      </v-row>
+    
+    <v-col cols="12" sm="12">
+      
+       
+     
+     
         <v-stepper v-model="e1">
             <v-stepper-header>
               <v-stepper-step
@@ -131,12 +133,15 @@
                 </v-stepper-content>
               </v-stepper-items>
         </v-stepper>
+      
     </v-col>
   </v-row> 
 </v-container>
+</v-form>
 ></v-parallax>
- </v-form>
 
+
+</v-layout>
 </template>
 
 <script>
