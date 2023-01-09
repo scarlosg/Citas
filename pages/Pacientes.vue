@@ -1,31 +1,54 @@
 <template>
-    <div>
-      <v-data-table
-        :headers="headers"
-        :items="desserts"
-        :page.sync="page"
-        :items-per-page="itemsPerPage"
-        hide-default-footer
-        class="elevation-1"
-        @page-count="pageCount = $event"
-      ></v-data-table>
-      <div class="text-center pt-2">
-        <v-pagination
-          v-model="page"
-          :length="pageCount"
-        ></v-pagination>
-        <v-text-field
-          :value="itemsPerPage"
-          label="Items per page"
-          type="number"
-          min="-1"
-          max="15"
-          @input="itemsPerPage = parseInt($event, 10)"
-        ></v-text-field>
-      </div>
-    </div>
-  </template>
+  
+  <div>
 
+    <v-col cols="12" sm="10" >
+          <v-row justify="center" align="center">
+             <center>
+          <v-form action="">
+            <p>
+              Buscar Cédula: <input v-mask="['#.###.###','##.###.###']" method="post" type="search"  name="buscarcedula" placeholder="V-">
+              <v-btn dark small color="gray">Buscar
+              <v-icon dark>
+                mdi-account-search
+              </v-icon>
+              </v-btn>
+            </p>
+          </v-form>
+        </center>
+
+        
+          <v-btn>Registrar</v-btn>
+       
+          </v-row>
+        
+      </v-col>
+
+    <v-data-table
+      :headers="headers"
+      :items="desserts"
+      :page.sync="page"
+      :items-per-page="itemsPerPage"
+      hide-default-footer
+      class="elevation-1"
+      @page-count="pageCount = $event"
+    ></v-data-table>
+    <div class="text-center pt-2">
+      <v-pagination
+        v-model="page"
+        :length="pageCount"
+      ></v-pagination>
+      <v-text-field
+        :value="itemsPerPage"
+        label="Items per page"
+        type="number"
+        min="-1"
+        max="16"
+        @input="itemsPerPage = parseInt($event, 10)"
+      ></v-text-field>
+    </div>
+  </div>
+</template>
 <script>
   export default {
     data () {
@@ -35,16 +58,15 @@
         itemsPerPage: 10,
         headers: [
           {
-            text: 'Dessert (100g serving)',
+            text: 'Nombre y Apellido',
             align: 'start',
             sortable: false,
             value: 'name',
           },
-          { text: 'Calories', value: 'calories' },
-          { text: 'Fat (g)', value: 'fat' },
-          { text: 'Carbs (g)', value: 'carbs' },
-          { text: 'Protein (g)', value: 'protein' },
+          { text: 'Cédula', value: 'calories' },
+          { text: 'Teléfono', value: 'fat' },
           { text: 'Iron (%)', value: 'iron' },
+          
         ],
         desserts: [
           {
@@ -130,5 +152,12 @@
         ],
       }
     },
+    methods: {
+      sendata(){
+        this.$axios.get({ params: {
+
+        }})
+      }
+    }
   }
 </script>
