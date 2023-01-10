@@ -7,8 +7,7 @@
       :clipped="clipped"
       fixed
       app
-      color="indigo lighten-2"
-    >
+      color="indigo lighten-2">
       <v-list>
         <v-list-item
           v-for="(item, i) in items"
