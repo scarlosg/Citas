@@ -6,7 +6,7 @@
           <v-row justify="center" align="center">
              <center>
           <v-form action="">
-            <p>
+            <p class="ma-4 ms-12">
               Buscar Cédula: <input v-mask="['#.###.###','##.###.###']" method="post" type="search"  name="buscarcedula" placeholder="V-">
               <v-btn dark small color="gray">Buscar
               <v-icon dark>
@@ -17,8 +17,10 @@
           </v-form>
         </center>
 
-      
-          <v-btn class="sm=8" color="blue black--text">Registrar</v-btn>
+        <v-row class="ma-4 ms-12" justify="center" align="center">
+           <v-btn class="sm=8" color="blue black--text">Registrar</v-btn>
+        </v-row>
+         
         
           
   

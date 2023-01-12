@@ -1,4 +1,9 @@
 <template>
+  <v-layout row wrap>
+    <v-flex>
+  <v-app class="black" full-screen>
+
+
   <v-row>
     <v-col class="text-center">
       <img src="/logo.png" alt="Vuetify.js" class="mb-5"/>
@@ -25,7 +30,11 @@
           </center>
         </blockquote>
     </v-col>
-  </v-row>  
+  </v-row> 
+
+</v-app>
+</v-flex>
+</v-layout>
 </template>
   
   <script>
