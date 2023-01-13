@@ -1,13 +1,16 @@
 <template>
      <v-layout row wrap>
-      <v-parallax srcset="https://cdn.vuetifyjs.com/images/parallax/material.jpg" height="750">
+     <v-app class="black">
    <v-form class="ma-12">
-   <v-container>
+   <v-container>    
+    <v-card justify="center" align="center" color="transparent">
+      <img src="/logo.png" alt="Vuetify.js">
+    </v-card>
+     
     <v-card color="transparent" width="1000">
-     <img src="/logo.png" alt="Vuetify.js" justify="center" align="center" >
   <v-row justify="center" align="center">
     <v-col cols="12" sm="12">
-      
+     
         <v-stepper v-model="e1">
             <v-stepper-header>
               <v-stepper-step
@@ -135,7 +138,7 @@
 </v-card>
 </v-container>
 </v-form>
-</v-parallax>
+</v-app>
 
 
 </v-layout>

@@ -7,7 +7,7 @@
              <center>
           <v-form action="">
             <p class="ma-4 ms-12">
-              Buscar Cédula: <input v-mask="['#.###.###','##.###.###']" method="post" type="search"  name="buscarcedula" placeholder="V-">
+              Buscar Cédula: <input v-mask="['#.###.###','##.###.###']" style="color:white; background:transparent;" method="post" type="search"  name="buscarcedula" placeholder="V-">
               <v-btn dark small color="gray">Buscar
               <v-icon dark>
                 mdi-account-search
