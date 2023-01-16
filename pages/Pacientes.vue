@@ -7,7 +7,7 @@
              <center>
           <v-form action="">
             <p class="ma-4 ms-12">
-              Buscar Cédula: <input v-mask="['#.###.###','##.###.###']" style="color:white; background:transparent;" method="post" type="search"  name="buscarcedula" placeholder="V-">
+              Buscar Cédula: <input  v-mask="['#.###.###','##.###.###']" autocomplete="off" style="color:white; background:transparent;" method="post" type="search"  name="buscarcedula" placeholder="V-">
               <v-btn dark small color="gray">Buscar
               <v-icon dark>
                 mdi-account-search
@@ -16,14 +16,13 @@
             </p>
           </v-form>
         </center>
-
+        <a href="Javascript:window.open('RegistrarUs','','width=800, height=600');">
         <v-row class="ma-4 ms-12" justify="center" align="center">
+         
            <v-btn class="sm=8" color="blue black--text">Registrar</v-btn>
         </v-row>
          
-        
-          
-  
+        </a>
           </v-row>
         
       </v-col>

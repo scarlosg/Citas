@@ -1,31 +1,19 @@
 <template>
   <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      
-      <v-row>
-        <v-carousel hide-delimiters height="250">
+    
+          
+      <v-row class="fill-height">
+        <v-carousel hide-delimiters cycle height="350">
           <v-carousel-item
             v-for="(item,i) in items"
             :key="i"
             :src="item.src"
           ></v-carousel-item>
         </v-carousel>
-      </v-row><br>
-
-     
-
-        <div class="social">
-		<ul>
-			<li><a href="http://www.facebook.com/falconmasters" target="_blank" class="icon-facebook"></a></li>
-			<li><a href="http://www.twitter.com/falconmasters" target="_blank" class="icon-twitter"></a></li>
-			<li><a href="http://www.googleplus.com/falconmasters" target="_blank" class="icon-googleplus"></a></li>
-			<li><a href="http://www.pinterest.com/falconmasters" target="_blank" class="icon-pinterest"></a></li>
-			<li><a href="mailto:contacto@falconmasters.com" class="icon-mail"></a></li>
-		</ul>
-	</div>
+      </v-row>
 
       
-
+<v-col cols="12" sm="8" md="6">
       <v-card>
         <v-card-title class="headline">
           Bienvenidos a la casa de los abuelos
@@ -85,16 +73,19 @@ export default {
       return {
         items: [
           {
-            src: '2017-06-13.jpg',
+            src: '2017-06-01.jpg',
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+            src: '2017-06-02.jpg',
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+            src: '2017-06-03.jpg',
           },
           {
-            src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+            src: '2017-06-04.jpeg',
+          },
+          {
+            src: '2017-06-05.jpg',
           },
         ],
       }
