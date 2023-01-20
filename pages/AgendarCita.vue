@@ -11,21 +11,100 @@
   <v-row justify="center" align="center">
     <v-col cols="12" sm="12">
      
-        <v-stepper v-model="e1">
-            <v-stepper-header>
-              <v-stepper-step
-                :complete="e1 > 2"
-                step="1">
-                Especialidad y Medico
-              </v-stepper-step>
+      <v-stepper
+    v-model="e6"
+    vertical
+  >
+    <v-stepper-step
+      :complete="e6 > 1"
+      step="1"
+    >
+      Seleccione Especialidad
+    </v-stepper-step>
 
-                  <v-divider></v-divider>
+    <v-stepper-content step="1">
+      <v-card color="grey lighten-1" class="mb-12" height="200px">
+        <v-row justify="center" align="center">
+          <v-col sm="3" class="ma-14">   
+            <v-select 
+            background-color="primary"
+            :items="Esp"
+            label="Especialidad"
+            outlined
+            ></v-select>
+          </v-col>
+        </v-row>   
+    </v-card>
+      <v-btn color="primary" @click="e6 = 2">
+        Continue
+      </v-btn>
+    </v-stepper-content>
 
-              <v-stepper-step step="2">
-                Fecha de Cita
-              </v-stepper-step>
-            </v-stepper-header>
+    <v-stepper-step
+      :complete="e6 > 2"
+      step="2"
+    >
+      Seleccione Médico
+    </v-stepper-step>
 
+    <v-stepper-content step="2">
+      <v-card color="grey lighten-1" class="mb-12" height="200px">
+        <v-row justify="center" align="center">
+          <v-col sm="3" class="ma-14">   
+            <v-select 
+            background-color="primary"
+            :items="Esp"
+            label="Médico"
+            outlined
+            ></v-select>
+          </v-col>
+        </v-row>   
+    </v-card>
+      <v-btn color="primary" @click="e6 = 3">
+        Continue
+      </v-btn>
+      <v-btn @click="e6 = 1">
+        Atrás
+      </v-btn>
+    </v-stepper-content>
+
+    <v-stepper-step
+      :complete="e6 > 3"
+      step="3"
+    >
+      Seleccione Fecha de Cita
+    </v-stepper-step>
+
+    <v-stepper-content step="3">
+      
+      <v-col>
+      <v-card color="grey lighten-1" class="mb-12" height="200px">
+        
+        
+          
+          
+       
+      
+
+       
+      </v-card>
+    
+     </v-col> 
+      <v-btn
+        color="primary"
+        @click="e6 = 4"
+      >
+        Continue
+      </v-btn>
+      <v-btn @click="e6 = 2">
+        Atrás
+      </v-btn>
+    </v-stepper-content>
+
+  
+  </v-stepper>
+
+  <!--
               <v-stepper-items>
       
                 <v-stepper-content step="2">
@@ -88,7 +167,7 @@
                     </v-btn>
                 </v-stepper-content>
               </v-stepper-items>
-        </v-stepper>
+     -->
       
     </v-col>
   </v-row> 
@@ -106,7 +185,8 @@ export default {
   name: 'InspirePage',
   data () {
       return {
-        e1: 1,
+        e6: 1,
+        e1: 2,
         picker: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
       }
     },
