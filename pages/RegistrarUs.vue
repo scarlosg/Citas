@@ -9,24 +9,9 @@
     <v-container>
       
       <v-row justify="center" align="center">
-        <v-col cols="12" sm="8" >
-          <v-row justify="center" align="center">
-             <center>
-          <v-form action="">
-            <p>
-              Buscar Cédula: <input v-mask="['#.###.###','##.###.###']" autocomplete="off" method="post" type="search"  name="buscarcedula" placeholder="V-">
-              <v-btn dark small color="gray">Buscar
-              <v-icon dark>
-                mdi-account-search
-              </v-icon>
-              </v-btn>
-            </p>
-          </v-form>
-        </center>
-      </v-row>
-      </v-col>
+       
       
-      <v-card color="light-blue darken-4" width="1000px" >
+      <v-card color="light-blue darken-4" width="1500px" >
     
       <v-row justify="center" align="center">
 
@@ -54,13 +39,15 @@
 
       <v-row justify="center" align="center">
 
-        <v-col cols="6" md="3">
+        <v-col cols="6" md="1">
           <v-select
            :items="items"
-            label="Cédula"
+            label="Tipo"
           ></v-select>
-          <v-text-field v-mask="['#.###.###','##.###.###']" label="Número de Cédula" placeholder="V-"></v-text-field>
-        </v-col>  
+          </v-col>  
+          <v-col cols="6" md="2">
+          <v-text-field v-mask="['#.###.###','##.###.###']" label="Número de Cédula"></v-text-field>
+          </v-col>
  
         <v-col cols="3" md="3">
           <v-text-field
@@ -99,7 +86,7 @@
 
       <v-row justify="center" align="center">
 
-        <v-col cols="6" sm="5">
+        <v-col cols="6" sm="3">
           <v-text-field
             v-model="Telefono"
             v-mask="['####-###-####']"
@@ -113,7 +100,7 @@
         <v-col cols="6" sm="3">      
           <v-select 
             :items="itemsM"
-            label="Municipio"
+            label="Genero"
             outlined
           ></v-select>
         </v-col>
@@ -173,7 +160,7 @@ export default {
     Telefono: '',
     email: '',
     Nacimiento: '',
-    items: ['Venezolano', 'Extranjero', 'Pasaporte'],
+    items: ['V', 'E', 'P'],
     itemsP: ['[Seleccione]'],
     itemsM: ['[Seleccione]'],
 

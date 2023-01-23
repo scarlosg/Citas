@@ -75,31 +75,7 @@
       Seleccione Fecha de Cita
     </v-stepper-step>
 
-    <v-stepper-content step="3">
-      
-      <v-col>
-      <v-card color="grey lighten-1" class="mb-12" height="200px">
-        
-        
-          
-          
-       
-      
-
-       
-      </v-card>
     
-     </v-col> 
-      <v-btn
-        color="primary"
-        @click="e6 = 4"
-      >
-        Continue
-      </v-btn>
-      <v-btn @click="e6 = 2">
-        Atrás
-      </v-btn>
-    </v-stepper-content>
 
   
   </v-stepper>
@@ -181,6 +157,8 @@
 </template>
 
 <script>
+
+
 export default {
   name: 'InspirePage',
   data () {
@@ -189,9 +167,6 @@ export default {
         e1: 2,
         picker: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
       }
-    },
-    methods: {
-      allowedDates: val => ![6, 5].includes(new Date(val).getDay()),
     },
 }
 </script>
