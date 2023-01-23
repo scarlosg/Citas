@@ -1,6 +1,8 @@
+
 <template>
   
   <v-app dark class="blue">
+   
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -25,11 +27,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn icon @click.stop="miniVariant = !miniVariant">
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
+    <v-app-bar :clipped-left="clipped" fixed app>    
       <v-toolbar-title>{{ title }}</v-toolbar-title>
       <v-spacer />
     </v-app-bar>
@@ -38,11 +36,6 @@
         <Nuxt />
       </v-container>
     </v-main>
-    
-    <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
-   
   </v-app>
   
 </template>
@@ -62,15 +55,14 @@ export default {
           to: '/',
         },
         {
-          icon: 'mdi-account-edit-outline',
-          title: 'Registrar Paciente',
-          to: '/RegistrarUs',
+          icon:"mdi-account",
+          title:"Pacientes",
+          to:"/Pacientes",
         },
-        
         {
-          icon: 'mdi-doctor',
-          title: 'Registrar Medico',
-          to: '/Inspire',
+          icon:"mdi-doctor",
+          title: "Medicos",
+          to: "/Medicos"
         },
         {
           icon:" mdi-calendar-range",
@@ -82,17 +74,15 @@ export default {
           title:"Reporte",
           to:"/Reporte",
         },
-        {
-          icon:"",
-          title:"Pacientes",
-          to:"/Pacientes",
-        },
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
       title: 'Instituto Municipal para el Desarrollo Social - Iribarren',
     }
+    
   },
+  
 }
+
 </script>
