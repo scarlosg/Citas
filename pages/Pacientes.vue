@@ -1,6 +1,8 @@
 <template>
-  
-  <div >
+  <v-layout row wrap>
+    <v-flex>
+      <v-app class="blue accent-2">
+  <div>
 
     <v-col cols="12" sm="10" >
           <v-row justify="center" align="center">
@@ -19,7 +21,7 @@
         <a href="Javascript:window.open('RegistrarUs','','width=800, height=600');">
         <v-row class="ma-4 ms-12" justify="center" align="center">
          
-           <v-btn class="sm=8" color="blue black--text">Registrar</v-btn>
+           <v-btn class="sm=8" color="gray">Registrar</v-btn>
         </v-row>
          
         </a>
@@ -36,13 +38,16 @@
       class="elevation-1"
       @page-count="pageCount = $event"
     ></v-data-table>
-    <div class="text-center pt-2">
+    <div class="text-center pt-3">
       <v-pagination
         v-model="page"
         :length="pageCount"
       ></v-pagination>
     </div>
   </div>
+</v-app>
+    </v-flex>
+  </v-layout>
 </template>
 <script>
   export default {

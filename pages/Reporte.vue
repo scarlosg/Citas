@@ -3,7 +3,7 @@
   <v-layout row wrap>
     
     <v-flex>
-  <v-app class="black">
+  <v-app class="blue accent-2">
 
 
   <v-row>
@@ -13,6 +13,7 @@
           <center>
             <v-col class="d-flex" cols="12" sm="3">
               <v-select
+              background-color="indigo darken-4"
                 :items="nameMes"
                 filled
                 label="Mes"

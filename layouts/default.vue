@@ -1,7 +1,7 @@
 
 <template>
   
-  <v-app dark class="blue">
+  <v-app>
    
     <v-navigation-drawer
       v-model="drawer"
@@ -9,7 +9,7 @@
       :clipped="clipped"
       fixed
       app
-      color="indigo lighten-2">
+      color="deep-purple darken-4">
       <v-list>
         <v-list-item
           v-for="(item, i) in items"
@@ -27,8 +27,12 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app>    
-      <v-toolbar-title>{{ title }}</v-toolbar-title>
+    
+    <v-app-bar :clipped-left="clipped" fixed app>  
+      <v-row justify="center" align="center" class="ms-16">
+         <v-toolbar-title>{{ title }}</v-toolbar-title>
+      </v-row>  
+     
       <v-spacer />
     </v-app-bar>
     <v-main>
