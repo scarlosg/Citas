@@ -12,14 +12,14 @@
                             locale="es" 
                             :allowed-dates="allowedDates" 
                             min="2022-10-15" 
-                            max="2023-04-20"> 
-                  
+                            max="2023-04-20">
                           </v-date-picker>
                         </v-col>
                       </v-row>
                     </v-form>
                   </v-card>
     </v-row>
+    
   </template>
 
   <script>

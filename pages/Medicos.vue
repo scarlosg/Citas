@@ -1,7 +1,16 @@
 <template>
-  
+   <v-layout row wrap>
+   <v-flex>
+    <v-app class="blue accent-2">
     <div >
-  
+      <td>
+        <span v-if="formActualizar && idActualizar == index">
+          <button class="btn btn-success" @click="guardarActualizacion(index)" >Guardar</button>
+        </span>
+        <span v-else>
+
+        </span>
+      </td>
       <v-col cols="12" sm="10" >
             <v-row justify="center" align="center">
                <center>
@@ -18,10 +27,8 @@
           </center>
           <a href="Javascript:window.open('Inspire','','width=800, height=600');">
           <v-row class="ma-4 ms-12" justify="center" align="center">
-           
-             <v-btn class="sm=8" color="blue black--text">Registrar</v-btn>
+             <v-btn class="sm=8" color="gray">Registrar</v-btn>
           </v-row>
-           
           </a>
             </v-row>
           
@@ -43,6 +50,9 @@
         ></v-pagination>
       </div>
     </div>
+  </v-app>
+  </v-flex>
+</v-layout>
   </template>
 
   <script>
