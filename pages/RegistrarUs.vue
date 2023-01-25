@@ -99,7 +99,7 @@
     
         <v-col cols="6" sm="3">      
           <v-select 
-            :items="itemsM"
+            :items="itemsG"
             label="Genero"
             outlined
           ></v-select>
@@ -163,6 +163,7 @@ export default {
     items: ['V', 'E', 'P'],
     itemsP: ['[Seleccione]'],
     itemsM: ['[Seleccione]'],
+    itemsG: ['Femenino', 'Masculino', 'Otros'],
 
     nameRules: [
       v => !!v || 'Los Nombres son Requeridos',
