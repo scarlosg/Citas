@@ -166,7 +166,6 @@
                   >
                   <v-select 
                   v-model="editedItem.municipio"
-
                   :items="itemsM"
                   label="Municipio">
                   </v-select>
@@ -220,7 +219,7 @@
       <v-icon
       small
       class="mr-2"
-      @click="visu"
+     @click="visualizeItem(item)"
       >
         mdi-eye-outline
       </v-icon>
@@ -300,7 +299,7 @@ export default {
 
   computed: {
     formTitle () {
-      return this.editedIndex === -1 ? 'Médicos' : 'Editar'
+      return this.editedIndex === -2 ? 'Médicos' : 'Editar' 
     },
   },
 
@@ -332,6 +331,12 @@ export default {
           parroquia: 'Ana Soto',
         },
       ]
+    },
+
+    visualizeItem (item) {
+      this.editedIndex = this.desserts.indexOf(item)
+      this.editedItem = Object.assign({}, item)
+      this.dialog = true
     },
 
     editItem (item) {
