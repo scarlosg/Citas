@@ -9,8 +9,13 @@
       :clipped="clipped"
       fixed
       app
-      color="deep-purple darken-4">
+      width="200px"
+      color="deep-orange lighten-3">
       <v-list>
+        <v-card color="transparent" align="center" flat height="100px">
+          <img src="/logo.png" alt="Vuetify.js" class="mb-6" height="70px" width="70px"/>
+        </v-card>
+
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
@@ -59,7 +64,7 @@ export default {
           to: '/',
         },
         {
-          icon:"mdi-account",
+          icon:"mdi-account-injury",
           title:"Pacientes",
           to:"/Pacientes",
         },

@@ -1,44 +1,48 @@
 <!-- eslint-disable vue/valid-v-slot -->
 <template>
-   <v-layout row wrap>
-   <v-flex>
-    <v-app class="black">
-    <div>
-      <v-col cols="12" sm="10" >
-            <v-row justify="center" align="center">
-               <center>
-            <v-form action="">
-              <p class="ma-4 ms-12">
-                Buscar Cédula: <input  v-mask="['#.###.###','##.###.###']" autocomplete="off" style="color:white; background:transparent;" method="post" type="search"  name="buscarcedula" placeholder="V-">
-                <v-btn dark small color="gray">Buscar
-                <v-icon dark>
-                  mdi-account-search
-                </v-icon>
-                </v-btn>
-              </p>
-            </v-form>
-          </center>
-          <a href="Javascript:window.open('Inspire','','width=800, height=600');">
-          <v-row class="ma-4 ms-12" justify="center" align="center">
-             <v-btn class="sm=8" color="gray">Registrar</v-btn>
-          </v-row>
-          </a>
-            </v-row>
-          
-        </v-col>
-  
-        <v-data-table
+  <v-layout row wrap>
+    <v-flex>
+      <v-app class="white">
+
+  <div>
+
+      <v-card color="transparent" class="ma-8">
+    <v-row justify="center" align="center">
+      <v-col
+                    cols="6"
+                    sm="6"
+                    md="4"
+                  >
+              <v-text-field
+             
+                v-model="search"
+                color="deep-orange lighten-3"
+                append-icon="mdi-magnify"
+                label="Buscar"
+                single-line
+                hide-details
+              ></v-text-field>
+            </v-col>
+    </v-row>
+            
+      </v-card>
+
+      <v-card class="ma-10">
+
+   
+      <v-data-table
     :headers="headers"
     :items="desserts"
-    sort-by="calories"
+    sort-by="citas"
     class="elevation-1"
+    color="black"
     :search="search"
   >
     <template #top>
       <v-toolbar
         flat
       >
-        <v-toolbar-title>Medicos</v-toolbar-title>
+        <v-toolbar-title>Médicos</v-toolbar-title>
         <v-divider
           class="mx-4"
           inset
@@ -51,13 +55,12 @@
         >
           <template #activator="{ on, attrs }">
             <v-btn
-              color="primary"
-              dark
+              color="deep-orange lighten-3 black--text"
               class="mb-2"
               v-bind="attrs"
               v-on="on"
             >
-              Registrar Medicos
+              Registrar Médicos
             </v-btn>
           </template>
           <v-card>
@@ -67,27 +70,6 @@
 
             <v-card-text>
               <v-container>
-                <v-row justify="center">
-
-
-
-           <v-col
-                    cols="12"
-                    sm="12"
-                    md="8"
-                  >
-                  <v-text-field
-                  append-icon="mdi-magnify"
-                  label="Buscar"
-                  single-line
-                  hide-details>
-                  </v-text-field>
-                </v-col>
-         </v-row>
-
-
-
-         
                 <v-row>
                   <v-col
                     cols="12"
@@ -184,6 +166,7 @@
                   >
                   <v-select 
                   v-model="editedItem.municipio"
+
                   :items="itemsM"
                   label="Municipio">
                   </v-select>
@@ -199,16 +182,6 @@
                   label="Parroquia">
                   </v-select>
                 </v-col>
-                <v-col
-                    cols="6"
-                    sm="3"
-                    md="4"
-                  >
-                  <v-select 
-                  :items="especialidad"
-                  label="Especialidad">
-                  </v-select>
-                </v-col>
                 </v-row>
               </v-container>
             </v-card-text>
@@ -216,35 +189,26 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn
-                color="blue darken-1"
+                color="black"
                 text
                 @click="close"
               >
-                Cancel
+                Cancelar
               </v-btn>
               <v-btn
-                color="blue darken-1"
+                color="black"
                 text
                 @click="save"
               >
-                Save
+                Guardar
               </v-btn>
             </v-card-actions>
           </v-card>
         </v-dialog>
-        <v-dialog v-model="dialogDelete" max-width="500px">
-          <v-card>
-            <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="deleteItemConfirm">OK</v-btn>
-              <v-spacer></v-spacer>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
+       
       </v-toolbar>
     </template>
+    // eslint-disable-next-line vue/valid-v-slot
     <template #item.actions="{ item }">
       <v-icon
         small
@@ -254,10 +218,11 @@
         mdi-pencil
       </v-icon>
       <v-icon
-        small
-        @click="deleteItem(item)"
+      small
+      class="mr-2"
+      @click="visu"
       >
-        mdi-delete
+        mdi-eye-outline
       </v-icon>
     </template>
     <template #no-data>
@@ -269,59 +234,65 @@
       </v-btn>
     </template>
   </v-data-table>
-    </div>
-  </v-app>
-  </v-flex>
-</v-layout>
-  </template>
+   </v-card>
+
+   
+  </div>
+</v-app>
+    </v-flex>
+  </v-layout>
+</template>
 
 <script>
 export default {
   data: () => ({
+    search: '',
     dialog: false,
     dialogDelete: false,
     itemsM: ['[Seleccione]'],
     itemsP: ['[Seleccione]'],
     items:  ['V', 'E', 'P'],
-    itemsG: ['Masculino', 'Femenino', 'Otro'],
-    especialidad: ['[Especialidad]'],
+    itemsG: ['Femenino', 'Masculino', 'Otros'],
     headers: [
       {
-        text: 'Nombre y Apellido',
+        text: 'Cédula',
         align: 'start',
         sortable: false,
-        value: 'name',
+        value: 'cedula',
       },
-      { text: 'Cédula', value: 'cedula' },
+      { text: 'Nombres', value: 'name' },
+      { text: 'Apellidos', value: 'lastname' },
       { text: 'Fecha', value: 'fecha' },
       { text: 'Dirección', value: 'direccion' },
       { text: 'Teléfono', value: 'telefono' },
       { text: 'Genero', value: 'genero' },
       { text: 'Municipio', value: 'municipio' },
-      { text: 'Parroquia', value: 'parroquia'},
+      { text: 'Parroquia', value: 'parroquia', },
       { text: 'Actions', value: 'actions', sortable: false },
     ],
     desserts: [],
     editedIndex: -1,
     editedItem: {
-      name: '',
-      tipo: '',
       cedula: '',
+      name: '',
+      lastname: '',
+      tipo: '',
       fecha: '',
       email: '',
       telefono: '',
-      itemsG: '',
+      genero: '',
       municipio: '',
       parroquia: '',
     },
     defaultItem: {
-      name: '',
-      tipo: '',
       cedula: '',
+      name: '',
+      lastname: '',
+      tipo: '',
       fecha: '',
       email: '',
       telefono: '',
-      itemsG: '',
+      genero: '',
       municipio: '',
       parroquia: '',
     },
@@ -329,7 +300,7 @@ export default {
 
   computed: {
     formTitle () {
-      return this.editedIndex === -1 ? 'Registro de Medicos' : 'Editar'
+      return this.editedIndex === -1 ? 'Médicos' : 'Editar'
     },
   },
 
@@ -350,11 +321,15 @@ export default {
     initialize () {
       this.desserts = [
         {
-          name: 'Frozen Yogurt',
-          cedula: 159,
-          fat: 6.0,
-          carbs: 24,
-          protein: 4.0,
+          name: 'Frozen',
+          lastname: 'Yogurt',
+          cedula: 26540805,
+          fecha: '01-05-1999',
+          direccion: 'Las Americas',
+          telefono: '0424-559-4094',
+          genero: 'M',
+          municipio: 'Iribarren',
+          parroquia: 'Ana Soto',
         },
       ]
     },

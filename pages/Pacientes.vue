@@ -2,40 +2,41 @@
 <template>
   <v-layout row wrap>
     <v-flex>
-      <v-app class="black">
+      <v-app class="white">
 
   <div>
 
-    <v-col cols="12" sm="10" >
-          <v-row justify="center" align="center">
-             <center>
-          <v-form action="">
-            <p class="ma-4 ms-12">
-              Buscar Cédula: <input  v-mask="['#.###.###','##.###.###']" autocomplete="off" style="color:white; background:transparent;" method="post" type="search"  name="buscarcedula" placeholder="V-">
-              <v-btn dark small color="gray">Buscar
-              <v-icon dark>
-                mdi-account-search
-              </v-icon>
-              </v-btn>
-            </p>
-          </v-form>
-        </center>
-        <a href="Javascript:window.open('RegistrarUs','','width=800, height=600');">
-        <v-row class="ma-4 ms-12" justify="center" align="center">
-         
-           <v-btn class="sm=8" color="gray">Registrar</v-btn>
-        </v-row>
-         
-        </a>
-          </v-row>
-        
-      </v-col>
+      <v-card color="transparent" class="ma-8">
+    <v-row justify="center" align="center">
+      <v-col
+                    cols="6"
+                    sm="6"
+                    md="4"
+                  >
+              <v-text-field
+             
+                v-model="search"
+                color="deep-orange lighten-3"
+                append-icon="mdi-magnify"
+                label="Buscar"
+                single-line
+                hide-details
+              ></v-text-field>
+            </v-col>
+    </v-row>
+            
+      </v-card>
 
+      <v-card class="ma-10">
+
+   
       <v-data-table
     :headers="headers"
     :items="desserts"
-    sort-by="pacientes"
+    sort-by="citas"
     class="elevation-1"
+    color="black"
+    :search="search"
   >
     <template #top>
       <v-toolbar
@@ -54,13 +55,12 @@
         >
           <template #activator="{ on, attrs }">
             <v-btn
-              color="primary"
-              dark
+              color="deep-orange lighten-3 black--text"
               class="mb-2"
               v-bind="attrs"
               v-on="on"
             >
-              Registrar Pacientes
+              Registrar Paciente
             </v-btn>
           </template>
           <v-card>
@@ -165,6 +165,7 @@
                     md="4"
                   >
                   <v-select 
+                  v-model="editedItem.municipio"
                   :items="itemsM"
                   label="Municipio">
                   </v-select>
@@ -175,6 +176,7 @@
                     md="4"
                   >
                   <v-select 
+                  v-model="editedItem.parroquia"
                   :items="itemsP"
                   label="Parroquia">
                   </v-select>
@@ -186,14 +188,14 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn
-                color="blue darken-1"
+                color="black"
                 text
                 @click="close"
               >
                 Cancel
               </v-btn>
               <v-btn
-                color="blue darken-1"
+                color="black"
                 text
                 @click="save"
               >
@@ -202,17 +204,7 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
-        <v-dialog v-model="dialogDelete" max-width="500px">
-          <v-card>
-            <v-card-title class="text-h5">Are you sure you want to delete this item?</v-card-title>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn color="blue darken-1" text @click="closeDelete">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="deleteItemConfirm">OK</v-btn>
-              <v-spacer></v-spacer>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
+       
       </v-toolbar>
     </template>
     // eslint-disable-next-line vue/valid-v-slot
@@ -224,12 +216,6 @@
       >
         mdi-pencil
       </v-icon>
-      <v-icon
-        small
-        @click="deleteItem(item)"
-      >
-        mdi-delete
-      </v-icon>
     </template>
     <template #no-data>
       <v-btn
@@ -240,7 +226,7 @@
       </v-btn>
     </template>
   </v-data-table>
-
+   </v-card>
 
    
   </div>
@@ -248,19 +234,20 @@
     </v-flex>
   </v-layout>
 </template>
+
 <script>
 export default {
   data: () => ({
+    search: '',
     dialog: false,
     dialogDelete: false,
     itemsM: ['[Seleccione]'],
     itemsP: ['[Seleccione]'],
     items:  ['V', 'E', 'P'],
-    especialidad: ['Oftanmologia'],
     itemsG: ['Femenino', 'Masculino', 'Otros'],
     headers: [
       {
-        text: 'Nombre y Apellido',
+        text: 'Nombres y Apellidos',
         align: 'start',
         sortable: false,
         value: 'name',
@@ -271,7 +258,7 @@ export default {
       { text: 'Teléfono', value: 'telefono' },
       { text: 'Genero', value: 'genero' },
       { text: 'Municipio', value: 'municipio' },
-      { text: 'Parroquia', value: 'parroquia'},
+      { text: 'Parroquia', value: 'parroquia', },
       { text: 'Actions', value: 'actions', sortable: false },
     ],
     desserts: [],
@@ -302,7 +289,7 @@ export default {
 
   computed: {
     formTitle () {
-      return this.editedIndex === -1 ? 'Registro de Pacientes' : 'Editar'
+      return this.editedIndex === -1 ? 'Pacientes' : 'Editar'
     },
   },
 

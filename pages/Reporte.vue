@@ -3,7 +3,7 @@
   <v-layout row wrap>
     
     <v-flex>
-  <v-app class="blue accent-2">
+  <v-app class="white">
 
 
   <v-row>
@@ -13,16 +13,16 @@
           <center>
             <v-col class="d-flex" cols="12" sm="3">
               <v-select
-              background-color="indigo darken-4"
+              background-color="deep-orange lighten-3"
                 :items="nameMes"
                 filled
                 label="Mes"
                 class="text-md-center"
               ></v-select>
             </v-col>
-          <a href="Javascript:window.open('VentanaReporte','','width=800, height=600');">
+          <a href="Javascript:window.open('VentanaReporte','width=800, height=600');">
               <v-col  md="3">
-                <v-btn  dark small color="gray"> 
+                <v-btn  dark small color="deep-orange lighten-3 black--text"> 
                   Reporte
                 <v-icon dark color="red">
                 mdi-chart-box
