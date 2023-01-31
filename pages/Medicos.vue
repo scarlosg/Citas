@@ -167,7 +167,8 @@
                   <v-select 
                   v-model="editedItem.municipio"
                   :items="itemsM"
-                  label="Municipio">
+                  label="Iribarren"
+                  disabled>
                   </v-select>
                 </v-col>
                 <v-col
@@ -179,6 +180,17 @@
                   v-model="editedItem.parroquia"
                   :items="itemsP"
                   label="Parroquia">
+                  </v-select>
+                </v-col>
+                <v-col
+                    cols="6"
+                    sm="3"
+                    md="4"
+                  >
+                  <v-select 
+                  v-model="editedItem.especialidad"
+                  :items="itemsE"
+                  label="Especialidad">
                   </v-select>
                 </v-col>
                 </v-row>
@@ -204,7 +216,6 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
-       
       </v-toolbar>
     </template>
     // eslint-disable-next-line vue/valid-v-slot
@@ -212,8 +223,8 @@
       <v-icon
         small
         class="mr-2"
-        @click="editItem(item)"
-      >
+        @click="editItem(item)">
+        
         mdi-pencil
       </v-icon>
       <v-icon
@@ -226,7 +237,7 @@
     </template>
     <template #no-data>
       <v-btn
-        color="primary"
+        color="black"
         @click="initialize"
       >
         Reset
@@ -248,9 +259,8 @@ export default {
     search: '',
     dialog: false,
     dialogDelete: false,
-    itemsM: ['[Seleccione]'],
     itemsP: ['[Seleccione]'],
-    items:  ['V', 'E', 'P'],
+    items:  ['V', 'E'],
     itemsG: ['Femenino', 'Masculino', 'Otros'],
     headers: [
       {
@@ -261,16 +271,11 @@ export default {
       },
       { text: 'Nombres', value: 'name' },
       { text: 'Apellidos', value: 'lastname' },
-      { text: 'Fecha', value: 'fecha' },
-      { text: 'Dirección', value: 'direccion' },
-      { text: 'Teléfono', value: 'telefono' },
-      { text: 'Genero', value: 'genero' },
-      { text: 'Municipio', value: 'municipio' },
-      { text: 'Parroquia', value: 'parroquia', },
-      { text: 'Actions', value: 'actions', sortable: false },
+      { text: 'Especialidad', value: 'especialidad'},
+      { text: 'Opciones', value: 'actions', sortable: false },
     ],
     desserts: [],
-    editedIndex: -1,
+    editedIndex: 1,
     editedItem: {
       cedula: '',
       name: '',
@@ -282,6 +287,7 @@ export default {
       genero: '',
       municipio: '',
       parroquia: '',
+      especialidad: '',
     },
     defaultItem: {
       cedula: '',
@@ -294,12 +300,13 @@ export default {
       genero: '',
       municipio: '',
       parroquia: '',
+      especialidad: '',
     },
   }),
 
   computed: {
     formTitle () {
-      return this.editedIndex === -2 ? 'Médicos' : 'Editar' 
+      return this.editedIndex === 0 ? 'Médicos' : 'Editar' 
     },
   },
 
@@ -322,13 +329,14 @@ export default {
         {
           name: 'Frozen',
           lastname: 'Yogurt',
-          cedula: 26540805,
+          cedula: '26540805',
           fecha: '01-05-1999',
           direccion: 'Las Americas',
           telefono: '0424-559-4094',
-          genero: 'M',
+          genero: 'Masculino',
           municipio: 'Iribarren',
           parroquia: 'Ana Soto',
+          especialidad: 'Oftanmología'
         },
       ]
     },

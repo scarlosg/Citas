@@ -107,80 +107,7 @@
                       label="Cédula"
                     ></v-text-field>
                   </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.fecha"
-                      label="Fecha de Nacimiento"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.email"
-                      label="E-mail"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.direccion"
-                      label="Dirección"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.telefono"
-                      label="Teléfono"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-select
-                     v-model="editedItem.genero"
-                     :items="itemsG"
-                      label="Genero"
-                    >
-                    </v-select>
-                  </v-col>
-                  <v-col
-                    cols="6"
-                    sm="3"
-                    md="4"
-                  >
-                  <v-select 
-                  v-model="editedItem.municipio"
-                  :items="itemsM"
-                  label="Municipio">
-                  </v-select>
-                </v-col>
-                <v-col
-                    cols="6"
-                    sm="3"
-                    md="4"
-                  >
-                  <v-select 
-                  v-model="editedItem.parroquia"
-                  :items="itemsP"
-                  label="Parroquia">
-                  </v-select>
-                </v-col>
+                  
                 </v-row>
               </v-container>
             </v-card-text>
@@ -243,28 +170,24 @@ export default {
     dialogDelete: false,
     itemsM: ['[Seleccione]'],
     itemsP: ['[Seleccione]'],
-    items:  ['V', 'E', 'P'],
+    items:  ['V', 'E'],
     itemsG: ['Femenino', 'Masculino', 'Otros'],
     headers: [
       {
-        text: 'Nombres y Apellidos',
+        text: 'Cédula',
         align: 'start',
         sortable: false,
-        value: 'name',
+        value: 'cedula',
       },
-      { text: 'Cédula', value: 'cedula' },
-      { text: 'Fecha', value: 'fecha' },
-      { text: 'Dirección', value: 'direccion' },
-      { text: 'Teléfono', value: 'telefono' },
-      { text: 'Genero', value: 'genero' },
-      { text: 'Municipio', value: 'municipio' },
-      { text: 'Parroquia', value: 'parroquia', },
+      { text: 'Nombres', value: 'name' },
+      { text: 'Apellidos', value: 'lastname' },
       { text: 'Actions', value: 'actions', sortable: false },
     ],
     desserts: [],
     editedIndex: -1,
     editedItem: {
       name: '',
+      lastname: '',
       tipo: '',
       cedula: '',
       fecha: '',
@@ -276,6 +199,7 @@ export default {
     },
     defaultItem: {
       name: '',
+      lastname: '',
       tipo: '',
       cedula: '',
       fecha: '',
@@ -310,11 +234,9 @@ export default {
     initialize () {
       this.desserts = [
         {
-          name: 'Frozen Yogurt',
-          cedula: 159,
-          fat: 6.0,
-          carbs: 24,
-          protein: 4.0,
+          name: 'Frozen',
+          lastname: 'Yogurt',
+          cedula: '11262360',
         },
       ]
     },
