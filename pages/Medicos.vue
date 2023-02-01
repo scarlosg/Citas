@@ -2,7 +2,7 @@
 <template>
   <v-layout row wrap>
     <v-flex>
-      <v-app class="black">
+      <v-app class="white">
 
   <div>
 
