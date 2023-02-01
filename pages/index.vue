@@ -75,20 +75,9 @@ export default {
       return {
         items: [
           {
-            src: '2017-06-01.jpg',
-          },
-          {
-            src: '2017-06-02.jpg',
-          },
-          {
-            src: '2017-06-03.jpg',
-          },
-          {
             src: '2017-06-04.jpeg',
           },
-          {
-            src: '2017-06-05.jpg',
-          },
+          
         ],
       }
     },

@@ -52,7 +52,7 @@
         <v-col cols="3" md="3">
           <v-text-field
             v-model="Nacimiento"
-            v-mask="['##/##/####']"
+            v-mask="['##-##-####']"
             placeholder="DD/MM/AAAA"
             :rules="nameRulesFe"
             label="Fecha de Nacimiento"
@@ -91,8 +91,8 @@
             v-model="Telefono"
             v-mask="['####-###-####']"
             :rules="nameRulesT"
-            placeholder="04XX-000-0000"
-             label="Teléfono"
+            placeholder="02XX-000-0000"
+             label="Teléfono Fijo"
             required
           ></v-text-field>
         </v-col>
@@ -191,12 +191,10 @@ export default {
       v => !!v || 'E-mail es Requerido',
       v => /.+@.+/.test(v) || 'E-mail no es valido',
     ],
-
     nameRulesT: [
       v => !!v || 'Teléfono Requerido',
       
     ],
-
     nameRuleFe: [
       v => !!v || 'Fecha Requerido',
     ],    

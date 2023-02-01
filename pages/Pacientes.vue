@@ -78,7 +78,10 @@
                   >
                     <v-text-field
                       v-model="editedItem.name"
-                      label="Nombre"
+                      :rules="nameRules"
+                      :counter="50"
+                      label="Nombres"
+                      required  
                     ></v-text-field>
                   </v-col>
                   <v-col
@@ -88,7 +91,10 @@
                   >
                     <v-text-field
                       v-model="editedItem.lastname"
-                      label="Apellido"
+                      label="Apellidos"
+                      :rules="nameRulesA"
+                      :counter="30"
+                      required
                     ></v-text-field>
                   </v-col>
                   <v-col cols="6" md="2">
@@ -104,10 +110,113 @@
                   >
                     <v-text-field
                       v-model="editedItem.cedula"
+                      v-mask="['#.###.###','##.###.###']"
+                       :rules= "cedulaRules"
                       label="Cédula"
                     ></v-text-field>
                   </v-col>
-                  
+                  <v-col
+                    cols="12"
+                    sm="6"
+                    md="4"
+                  >
+                    <v-text-field
+                      v-model="editedItem.fecha"
+                      v-mask="['##-##-####']"
+                     placeholder="DD/MM/AAAA"
+                     :rules="nameRulesFe"
+                      label="Fecha de Nacimiento"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col
+                    cols="12"
+                    sm="6"
+                    md="4"
+                  >
+                    <v-text-field
+                      v-model="editedItem.email"
+                      label="E-mail"
+                      :rules="emailRules"
+                      placeholder="ejemplo@ejemplo.com"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col
+                    cols="12"
+                    sm="6"
+                    md="4"
+                  >
+                    <v-text-field
+                      v-model="editedItem.direccion"
+                      label="Dirección"
+                      :rules="nameRulesD"
+                      :counter="100" 
+                      required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col
+                    cols="12"
+                    sm="6"
+                    md="4"
+                  >
+                    <v-text-field
+                      v-model="editedItem.telefonoF"
+                      v-mask="['####-###-####']"
+                      :rules="nameRulesT"
+                      placeholder="02XX-000-0000"
+                      label="Teléfono Fijo"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col
+                    cols="12"
+                    sm="6"
+                    md="4"
+                  >
+                    <v-text-field
+                      v-model="editedItem.telefonoC"
+                      v-mask="['####-###-####']"
+                      :rules="nameRulesT"
+                      placeholder="04XX-000-0000"
+                      label="Teléfono Cedular"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col
+                    cols="12"
+                    sm="6"
+                    md="4"
+                  >
+                    <v-select
+                     v-model="editedItem.genero"
+                     :items="itemsG"
+                      label="Genero"
+                    >
+                    </v-select>
+                  </v-col>
+                  <v-col
+                    cols="6"
+                    sm="3"
+                    md="4"
+                  >
+                  <v-select 
+                  v-model="editedItem.municipio"
+                  :items="itemsM"
+                  label="Iribarren"
+                  disabled>
+                  </v-select>
+                </v-col>
+                <v-col
+                    cols="6"
+                    sm="3"
+                    md="4">
+                  <v-select 
+                  v-model="editedItem.parroquia"
+                  :items="itemsP"
+                  label="Parroquia">
+                  </v-select>
+                </v-col>
                 </v-row>
               </v-container>
             </v-card-text>
@@ -181,6 +290,7 @@ export default {
       },
       { text: 'Nombres', value: 'name' },
       { text: 'Apellidos', value: 'lastname' },
+      { text: 'Fecha de Registro', value: ''},
       { text: 'Actions', value: 'actions', sortable: false },
     ],
     desserts: [],
@@ -209,6 +319,26 @@ export default {
       municipio: '',
       parroquia: '',
     },
+    nameRules: [
+      v => !!v || 'Los Nombres son Requeridos',
+      v => v.length <= 50 || 'Muy Largo',
+    ],
+    nameRulesA: [
+    v => !!v || 'Los Apellidos son Requeridos',
+      v => v.length <= 30 || 'Muy Largo',
+    ],
+    cedulaRules:[
+      v => !!v || 'Cédula Requerida',
+      v=> v.length >= 9 || 'Número de Cédula no valida',
+    ],
+    emailRules: [
+      v => !!v || 'E-mail es Requerido',
+      v => /.+@.+/.test(v) || 'E-mail no es valido',
+    ],
+    nameRuleFe: [
+      v => !!v || 'Fecha Requerido',
+      v=> v,
+    ],  
   }),
 
   computed: {

@@ -20,7 +20,6 @@
                 class="text-md-center"
               ></v-select>
             </v-col>
-          <a href="Javascript:window.open('VentanaReporte','width=800, height=600');">
               <v-col  md="3">
                 <v-btn  dark small color="deep-orange lighten-3 black--text"> 
                   Reporte
@@ -29,7 +28,7 @@
                 </v-icon>
                 </v-btn>
               </v-col>
-            </a>
+            
           </center>
         </blockquote>
     </v-col>

@@ -95,6 +95,7 @@
                     <v-text-field
                       v-model="editedItem.name"
                       label="Nombre"
+                      disabled
                     ></v-text-field>
                   </v-col>
                   <v-col
@@ -105,13 +106,8 @@
                     <v-text-field
                       v-model="editedItem.lastname"
                       label="Apellido"
+                      disabled
                     ></v-text-field>
-                  </v-col>
-                  <v-col cols="6" md="2">
-                  <v-select
-                  :items="items"
-                    label="Tipo"
-                  ></v-select>
                   </v-col>
                   <v-col
                     cols="12"
@@ -121,59 +117,8 @@
                     <v-text-field
                       v-model="editedItem.cedula"
                       label="Cédula"
+                      disabled
                     ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.fecha"
-                      label="Fecha de Nacimiento"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.email"
-                      label="E-mail"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.direccion"
-                      label="Dirección"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-text-field
-                      v-model="editedItem.telefono"
-                      label="Teléfono"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col
-                    cols="12"
-                    sm="6"
-                    md="4"
-                  >
-                    <v-select
-                     v-model="editedItem.genero"
-                     :items="itemsG"
-                      label="Genero"
-                    >
-                    </v-select>
                   </v-col>
                   <v-col
                     cols="6"
@@ -181,9 +126,9 @@
                     md="4"
                   >
                   <v-select 
-                  v-model="editedItem.municipio"
-                  :items="itemsM"
-                  label="Municipio">
+                  v-model="editedItem.especialidad"
+                  :items="itemsE"
+                  label="Especialidad">
                   </v-select>
                 </v-col>
                 <v-col
@@ -192,12 +137,43 @@
                     md="4"
                   >
                   <v-select 
-                  v-model="editedItem.parroquia"
-                  :items="itemsP"
-                  label="Parroquia">
+                  v-model="editedItem.medico"
+                  :items="itemsE"
+                  label="Médico">
                   </v-select>
                 </v-col>
-                </v-row>
+                <v-col
+                    cols="12"
+                    sm="6"
+                    md="4"
+                  >
+                    <v-menu
+                      v-model="menu2"
+                      :close-on-content-click="false"
+                      :nudge-right="40"
+                      transition="scale-transition"
+                      offset-y
+                      min-width="auto"
+                    >
+                      <template #activator="{ on, attrs }">
+                        <v-text-field
+                          v-model="date"
+                          label="Fecha de Cita"
+                          prepend-icon="mdi-calendar"
+                          readonly
+                          v-bind="attrs"
+                          v-on="on"
+                        ></v-text-field>
+                      </template>
+                      <v-date-picker
+                        v-model="editedItem.date"
+                         locale="es"
+                        @input="menu2 = false"                      
+                      ></v-date-picker>
+                    </v-menu>
+                  </v-col>
+                  <v-spacer></v-spacer>
+                              </v-row>
               </v-container>
             </v-card-text>
 
@@ -270,6 +246,8 @@
 <script>
 export default {
   data: () => ({
+    date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
+    menu2: false,
     search: '',
     dialog: false,
     dialogDelete: false,
@@ -286,8 +264,9 @@ export default {
       },
       { text: 'Nombres', value: 'name' },
       { text: 'Apellidos', value: 'lastname'},
-      { text: 'Fecha de Registro', value: 'fechaR' },
-      { text: 'Fecha de Cita Agendada', value: 'fechaA' },
+      { text: 'Especialidad', value: 'especialidad'},
+      { text: 'Médico', value: 'medico'},
+      { text: 'Fecha de Cita Agendada', value: 'date' },
       { text: 'Actions', value: 'actions', sortable: false },
     ],
     desserts: [],
@@ -298,6 +277,7 @@ export default {
       lastname:'',
       fechaR: '',
       fechaA: '',
+      date: '',
     },
     defaultItem: {
       cedula: '',
@@ -305,6 +285,7 @@ export default {
       lastname:'',
       fechaR: '',
       fechaA: '',
+      date: '',
     },
   }),
 
@@ -335,7 +316,6 @@ export default {
           lastname: 'Yogurt',
           cedula: 15912352,
           fechaR: '01-05-2022',
-          fechaA: '04-03-2023',
         },
       ]
     },
