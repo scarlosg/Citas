@@ -8,7 +8,7 @@
 
   <v-row>
     <v-col class="text-center">
-      <img src="/logo.png" alt="Vuetify.js" class="mb-6"/>
+      <img src="/logo (2).png" alt="Vuetify.js" class="mb-6"/>
         <blockquote class="blockquote">
           <center>
             <v-col class="d-flex" cols="12" sm="3">
